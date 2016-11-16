@@ -39,9 +39,7 @@ public class StartUp {
         }
         
         System.out.println("\nWriting into file: " + data.getAbsolutePath());
-        boolean append = true;   // you can change this
-
-        // This is where we setup our streams (append = false means overwrite)
+        boolean append = true;   // false means overwrite
         // new FileWriter() creates the file if doesn't exit
         PrintWriter out = new PrintWriter(new BufferedWriter(
                 new FileWriter(data, append)));
