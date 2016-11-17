@@ -70,6 +70,7 @@ public class ObjectSerialization implements Serializable {
 			ObjectInputStream in = new ObjectInputStream(
 				new FileInputStream("src/test.out"));
 			// Read the objects back in (don't forget to downcast from Object type)
+                        //upcast to datatype
 			test2 = (ObjectSerialization)in.readObject();
 			Hashtable hash2 = (Hashtable)in.readObject();
 			test2.hash = hash2;  // stupid, but proves it works on both test and hash objects

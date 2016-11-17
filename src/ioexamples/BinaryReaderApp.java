@@ -23,7 +23,7 @@ public class BinaryReaderApp{
 		 int number = in.readInt();
 		 System.out.println(number);
 
-		 char letter = in.readChar();
+		 char letter = in.readChar();//one of the ascII digits
 		 System.out.println(letter);
 
 		 boolean value = in.readBoolean();

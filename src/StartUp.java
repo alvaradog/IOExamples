@@ -8,13 +8,14 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 public class StartUp {
-    
+
     public static void main(String[] args) throws IOException {
         File data = new File("src" + File.separatorChar
                 + "contactList.txt");
-        
+
         List<String> lines = new ArrayList();
         BufferedReader in = null;
         try {
@@ -27,19 +28,18 @@ public class StartUp {
                 line = in.readLine();// strips out any carriage return chars
                 lines.add(line);
             }
-            
+
         } catch (IOException ioe) {
             System.out.println("Houston, we have a problem! reading this file");
         } finally {
             try {
                 in.close();
             } catch (Exception e) {
-                
             }
         }
-        
+
         System.out.println("\nWriting into file: " + data.getAbsolutePath());
-        boolean append = true;   // false means overwrite
+        boolean append = true;   // FALSE means overwrite
         // new FileWriter() creates the file if doesn't exit
         PrintWriter out = new PrintWriter(new BufferedWriter(
                 new FileWriter(data, append)));
@@ -49,9 +49,10 @@ public class StartUp {
         out.println("Milwaukee, WI 55511");
         out.close();
         
-        System.out.println("Second Contact: extracting name and State");
-        String [] cityStateZipLine = lines.get(5).split(" ");
+        
+        String x= JOptionPane.showInputDialog(null, "Please enter the contact you would like:");
+        String[] cityStateZipLine = lines.get(5).split(" ");
         System.out.println(lines.get(3) + " State: " + cityStateZipLine[1].toString());
     }
-    
+
 }
